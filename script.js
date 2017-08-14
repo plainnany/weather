@@ -1,11 +1,14 @@
 
+$(function(){
+    getWeather('新乡')
+    $('.city').on('change',function(){
+        let city = $('.city').val()
+        $('#currentCity').text(city)
+        getWeather(city)
+    })
 
-getWeather('新乡')
-$('.city').on('change',function(){
-    let city = $('.city').val()
-    $('#currentCity').text(city)
-    getWeather(city)
 })
+
 
 function getWeather(city){
     $.get('//jirenguapi.applinzi.com/weather.php?city=' + city).done(function(res){
