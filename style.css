@@ -4,6 +4,7 @@
 }
 body{
     background: url("https://h5tq.moji.com/tianqi/assets/images/skin/day_1.jpg") no-repeat top center;
+    background-size: cover; 
 }
 
 li{
