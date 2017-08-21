@@ -3,6 +3,7 @@ $(function(){
     getWeather('新乡')
     $('.city').on('change',function(){
         let city = $('.city').val()
+        // if(typeof JSON.parse(city) !== 'string'){alert('请输入正确的城市')}
         $('#currentCity').text(city)
         getWeather(city)
     })
@@ -11,11 +12,20 @@ $(function(){
 
 
 function getWeather(city){
+    
     $.get('//jirenguapi.applinzi.com/weather.php?city=' + city).done(function(res){
         let data = JSON.parse(res) // 需要JSON处理 
         console.log(data)
-        generateHtml(data)
+        if(data.status === 'success'){
+            generateHtml(data)
+        }else{
+            alert('服务器开小差了')  
+        }
+        
+    }).error(function(){
+        alert('服务器开小差了')  
     })
+   
 }
 
 function generateHtml(data){
