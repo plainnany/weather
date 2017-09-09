@@ -13,16 +13,15 @@ $(function(){
 
 function getWeather(city){
     
-    $.get('//jirenguapi.applinzi.com/weather.php?city=' + city).done(function(res){
+    $.get('//jirenguapi.applinzi.com/weather.php?city=' + city).then(function(res){
         let data = JSON.parse(res) // 需要JSON处理 
-        console.log(data)
         if(data.status === 'success'){
             generateHtml(data)
         }else{
-            alert('服务器开小差了')  
+            alert('请输入正确的城市~')  
         }
         
-    }).error(function(){
+    },function(){
         alert('服务器开小差了')  
     })
    
