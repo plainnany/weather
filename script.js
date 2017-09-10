@@ -1,6 +1,6 @@
 
 $(function(){
-    getWeather('新乡')
+    getWeather('北京')
     $('.city').on('change',function(){
         let city = $('.city').val()
         // if(typeof JSON.parse(city) !== 'string'){alert('请输入正确的城市')}
