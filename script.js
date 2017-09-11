@@ -1,14 +1,34 @@
 
 $(function(){
+    let timer = null
+    timer = setInterval(function(){
+        let random = Math.ceil(Math.random()*5)
+        $('body').css({
+            'background-image': 'url(./bg/bg'+ random + '.jpg)'
+        })
+
+    },3000)
+
+
     getWeather('北京')
+    
     $('.city').on('change',function(){
+        clearInterval(timer)
         let city = $('.city').val()
-        // if(typeof JSON.parse(city) !== 'string'){alert('请输入正确的城市')}
+        let random = Math.ceil(Math.random()*5)
         $('#currentCity').text(city)
+        $('body').css({
+            'background-image': 'url(./bg/bg'+ random + '.jpg)'
+        })
         getWeather(city)
     })
 
+    
+    
+    
+
 })
+
 
 
 function getWeather(city){
@@ -41,3 +61,11 @@ function generateHtml(data){
     $('.weather').append(html)
     
 }
+setInterval(function(){
+    let time = new Date()
+    let seconds = time.getSeconds()
+    seconds = seconds > 9 ? seconds : ('0' + seconds)
+    let minutes = time.getMinutes()
+    minutes = minutes > 9 ? minutes : ('0' + minutes)
+    $('.clock').text(time.getHours() + ':' + minutes + ':' + seconds)
+},1000)

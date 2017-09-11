@@ -3,18 +3,25 @@
     padding: 0;
 }
 body{
-    background: url("https://h5tq.moji.com/tianqi/assets/images/skin/day_1.jpg") no-repeat top center;
+    background-image: url("./bg/bg4.jpg");
+    background-repeat: no-repeat ;
+    background-position: top center;
     background-size: cover; 
+    transition: .6s;
 }
 
 li{
     list-style: none;
 }
+html,body{
+    height: 100%;
+    overflow: hidden;
+}
 .bg{
     max-width: 960px;
     height: 460px;
     margin: 10px auto 0;
-    background: url(weather-min.png) no-repeat;
+    background: url(weather-min.jpg) no-repeat;
     background-size: 100% 100%; 
     position: relative;
 }
@@ -44,11 +51,25 @@ li{
     outline: none;
     border-radius: 2px;
 }
+.bg .clock{
+    width: 16.31%;
+    line-height: 42px;
+    position: absolute;
+    right: 0;
+    top: 107px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(to bottom,rgb(119,195,93), rgb(121,198,101));
+    border-radius: 24px 0 0 24px;
+}
 .weather::after{
     content: '';
     display: block;
     clear: both;
 } 
+.weather{
+    height: 128px;
+}
 .weather li{
     width: 20%;
     float: left;
