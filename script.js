@@ -61,11 +61,14 @@ function generateHtml(data){
     $('.weather').append(html)
     
 }
-setInterval(function(){
-    let time = new Date()
-    let seconds = time.getSeconds()
-    seconds = seconds > 9 ? seconds : ('0' + seconds)
-    let minutes = time.getMinutes()
-    minutes = minutes > 9 ? minutes : ('0' + minutes)
-    $('.clock').text(time.getHours() + ':' + minutes + ':' + seconds)
-},1000)
+$(function(){
+    setInterval(function(){
+        let time = new Date()
+        let seconds = time.getSeconds()
+        seconds = seconds > 9 ? seconds : ('0' + seconds)
+        let minutes = time.getMinutes()
+        minutes = minutes > 9 ? minutes : ('0' + minutes)
+        $('.clock').text(time.getHours() + ':' + minutes + ':' + seconds)
+    },1000)
+})
+
